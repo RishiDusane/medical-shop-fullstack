@@ -1,0 +1,234 @@
+:root {
+  --primary-color: #0ea5e9;
+  --primary-hover: #0284c7;
+  --secondary-bg: #f8fafc;
+  --card-bg: #ffffff;
+  --text-dark: #1e293b;
+  --text-light: #64748b;
+  --border-color: #e2e8f0;
+  --danger-color: #ef4444;
+  --danger-hover: #dc2626;
+  --warning-color: #f59e0b;
+  --warning-hover: #d97706;
+  --radius: 12px;
+  --shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+}
+
+body {
+  background-color: var(--secondary-bg);
+  color: var(--text-dark);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  
+  /* CENTERING MAGIC STARTS HERE */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  /* This ensures the container centers but scrolls if too tall */
+}
+
+.container {
+  width: 100%;
+  max-width: 900px;
+  margin: auto; /* Vertically and Horizontally centers in the flex body */
+  padding: 40px 20px;
+  box-sizing: border-box;
+}
+
+h1 {
+  text-align: center;
+  color: var(--text-dark);
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+
+h2 {
+  color: var(--text-dark);
+  font-size: 1.5rem;
+  margin-top: 0;
+  margin-bottom: 20px;
+  border-bottom: 2px solid var(--secondary-bg);
+  padding-bottom: 10px;
+}
+
+/* Card Styling */
+.form-container, .list-container {
+  background: var(--card-bg);
+  padding: 30px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  margin-bottom: 30px;
+  border: 1px solid var(--border-color);
+}
+
+/* Form Grid */
+form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Full width for buttons on small screens */
+form button {
+  grid-column: span 2;
+}
+
+/* Inputs & Selects */
+input, select {
+  width: 100%;
+  padding: 12px 16px;
+  font-size: 16px;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  background-color: #fff;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+}
+
+input:focus, select:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 4px rgba(14, 165, 233, 0.15);
+}
+
+/* Error States */
+.input-error {
+  border-color: var(--danger-color) !important;
+  background-color: #fef2f2;
+}
+
+.input-error:focus {
+  box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.15) !important;
+}
+
+.error-msg {
+  color: var(--danger-color);
+  font-size: 0.85rem;
+  margin-top: 6px;
+  font-weight: 500;
+}
+
+/* Buttons */
+button {
+  padding: 12px 20px;
+  font-size: 16px;
+  font-weight: 600;
+  color: white;
+  background-color: var(--primary-color);
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+button:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+.cancel-btn {
+  background-color: var(--text-light);
+  margin-top: 10px;
+}
+
+.cancel-btn:hover {
+  background-color: var(--text-dark);
+}
+
+/* Table Styling */
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin-top: 10px;
+}
+
+thead th {
+  background-color: var(--secondary-bg);
+  color: var(--text-light);
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 0.5px;
+  padding: 16px;
+  text-align: left;
+  border-bottom: 2px solid var(--border-color);
+}
+
+/* Rounded corners for table header */
+thead th:first-child { border-top-left-radius: 8px; }
+thead th:last-child { border-top-right-radius: 8px; }
+
+tbody tr {
+  transition: background-color 0.2s;
+}
+
+tbody tr:hover {
+  background-color: #f1f5f9;
+}
+
+td {
+  padding: 16px;
+  border-bottom: 1px solid var(--border-color);
+  color: var(--text-dark);
+  vertical-align: middle;
+}
+
+/* Action Buttons in Table */
+td button {
+  padding: 8px 16px;
+  font-size: 14px;
+  margin-right: 8px;
+  width: auto;
+  box-shadow: none; /* Flatter look for table buttons */
+}
+
+.edit-btn {
+  background-color: var(--warning-color);
+  color: white;
+}
+
+.edit-btn:hover {
+  background-color: var(--warning-hover);
+}
+
+.delete-btn {
+  background-color: var(--danger-color);
+}
+
+.delete-btn:hover {
+  background-color: var(--danger-hover);
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  form {
+    grid-template-columns: 1fr;
+  }
+  
+  form button {
+    grid-column: span 1;
+  }
+
+  td, th {
+    padding: 10px;
+  }
+  
+  .container {
+    padding: 20px 10px;
+  }
+}
